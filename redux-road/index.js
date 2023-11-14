@@ -47,3 +47,7 @@ wagon = wagonReducer(wagon, { type: 'tippedWagon' });
 console.log(wagon); // { supplies: 65, distance: 10, days: 3 }
 wagon = wagonReducer(wagon, { type: 'travel', payload: 3 });
 console.log(wagon); // { supplies: 5, distance: 40, days: 6 }
+
+
+// export wagonReducer;
+module.exports = wagonReducer;
