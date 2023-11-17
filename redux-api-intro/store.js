@@ -9,6 +9,8 @@ const countReducer = (state = initialState, action) => {
   switch (action.type) {
     case "increment":
       return state + 1;
+    case "decrement":
+      return state - 1;
     default:
       return state;
   }
@@ -19,3 +21,11 @@ const countReducer = (state = initialState, action) => {
 // the store is created by passing in the reducer
 
 export const store = createStore(countReducer);
+
+store.dispatch({ type: "increment" });
+store.dispatch({ type: "increment" });
+console.log(store.getState());
+store.dispatch({ type: "decrement" });
+store.dispatch({ type: "decrement" });
+store.dispatch({ type: "decrement" });
+console.log(store.getState());
