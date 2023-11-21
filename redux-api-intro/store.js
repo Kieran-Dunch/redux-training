@@ -7,13 +7,13 @@ const initialState = 0;
 // the type property is a string that describes the action
 // the purpose of this is to reduce the amount of typos
 // that can occur when dispatching actions
-const increment = () => {
+export const increment = () => {
   return {
     type: "increment",
   };
 };
 
-const decrement = () => {
+export const decrement = () => {
   return {
     type: "decrement",
   };
