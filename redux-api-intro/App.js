@@ -14,7 +14,7 @@ function App({ state, dispatch }) {
 
   return (
     <main>
-      <p id='counter'>waiting for current state</p>
+      <p id='counter'>{state}</p>
       <button id='incrementer' onClick={handleIncrement}>+</button>
       <button id='decrementer' onClick={handleDecrement}>-</button>
     </main>

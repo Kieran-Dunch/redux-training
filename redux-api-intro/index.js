@@ -8,8 +8,11 @@ const root = createRoot(document.getElementById('app'));
 
 // store state change listener
 const render = () => {
-  root.render(<App />);
+  root.render(<App state={store.getState()} dispatch={store.dispatch} />);
 };
 
 
 render();
+
+// subscribe to state changes
+store.subscribe(render);
