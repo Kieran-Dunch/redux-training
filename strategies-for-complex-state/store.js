@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import allRecipesData from './data.js';
 
 // Action Creators
@@ -79,14 +79,25 @@ const favoriteRecipesReducer = (favoriteRecipes = initialFavoriteRecipes, action
   }
 }
 
+// use combineReducers to create a single reducer from multiple reducers
 
-const rootReducer = (state = {}, action) => {
-  const nextState = {
-    allRecipes: allRecipesReducer(state.allRecipes, action),
-    searchTerm: searchTermReducer(state.searchTerm, action),
-    favoriteRecipes: favoriteRecipesReducer(state.favoriteRecipes, action)
-  }
-  return nextState;
+const reducers = {
+  allRecipes: allRecipesReducer,
+  searchTerm: searchTermReducer,
+  favoriteRecipes: favoriteRecipesReducer
 }
+
+// with combineReducers:
+const rootReducer = combineReducers(reducers);
+
+// without combineReducers:
+// const rootReducer = (state = {}, action) => {
+//   const nextState = {
+//     allRecipes: allRecipesReducer(state.allRecipes, action),
+//     searchTerm: searchTermReducer(state.searchTerm, action),
+//     favoriteRecipes: favoriteRecipesReducer(state.favoriteRecipes, action)
+//   }
+//   return nextState;
+// }
 
 export const store = createStore(rootReducer);
