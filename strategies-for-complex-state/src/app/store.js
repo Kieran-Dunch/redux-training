@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import allRecipesData from './data.js';
+import allRecipesData from '../data.js';
 
 // Action Creators
 ////////////////////////////////////////
