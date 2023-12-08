@@ -5,12 +5,15 @@ import { CurrencyFilter } from '../features/currencyFilter/CurrencyFilter.js';
 // Import the Cart component here.
 import { Cart } from '../features/cart/Cart.js';
 // Render the Cart component below <Inventory />
+import { SearchTerm } from '../features/searchTerm/SearchTerm.js';
+
 export const App = (props) => {
 
   const { state, dispatch } = props;
 
   return (
     <div>
+      <SearchTerm searchTerm={state.searchTerm} dispatch={dispatch} />
       <CurrencyFilter
         currencyFilter={state.currencyFilter}
         dispatch={dispatch}
