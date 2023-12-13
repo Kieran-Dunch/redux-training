@@ -29,3 +29,5 @@ export const selectFilteredFavoriteRecipes = (state) => {
     recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 };
+
+export const { addRecipe, removeRecipe } = favoriteRecipesSlice.actions;
