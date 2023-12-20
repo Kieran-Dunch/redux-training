@@ -16,6 +16,13 @@ const initialState = CATEGORIES.map((category) => ({
   amount: 0,
 }));
 
+export const budgetsSlice = createSlice({
+  name: "budgets",
+  initialState: initialState,
+  reducers: {}
+});
+
+
 export const editBudget = (budget) => {
   return {
     type: "budgets/editBudget",
