@@ -40,20 +40,5 @@ export const editBudget = (budget) => {
   };
 };
 
-const budgetsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "budgets/editBudget":
-      const newBudgets = state.map((budget) => {
-        if (budget.category === action.payload.category) {
-          return action.payload;
-        }
-        return budget;
-      });
-      return newBudgets;
-    default:
-      return state;
-  }
-};
-
 export const selectBudgets = (state) => state.budgets;
-export default budgetsReducer;
+export default budgetsSlice.reducer;
