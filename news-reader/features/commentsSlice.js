@@ -12,6 +12,19 @@ export const loadCommentsForArticleId = createAsyncThunk(
 );
 // Create postCommentForArticleId here.
 
+export const postCommentForArticleId = createAsyncThunk(
+  'comments/postCommentForArticleId',
+  async ({ articleId, comment }) => {
+    const response = await fetch(`api/articles/${articleId}/comments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ comment })
+    });
+    const json = await response.json();
+    return json;
+  }
+);
+
 export const commentsSlice = createSlice({
   name: 'comments',
   initialState: {
