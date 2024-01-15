@@ -30,7 +30,9 @@ export const commentsSlice = createSlice({
   initialState: {
     byArticleId: {},
     isLoadingComments: false,
-    failedToLoadComments: false
+    failedToLoadComments: false,
+    createCommentIsPending: false,
+    failedToCreateComment: false
   },
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -46,6 +48,19 @@ export const commentsSlice = createSlice({
     [loadCommentsForArticleId.rejected]: (state, action) => {
       state.isLoadingComments = false;
       state.failedToLoadComments = true;
+    },
+    [postCommentForArticleId.pending]: (state, action) => {
+      state.createCommentIsPending = true;
+      state.failedToCreateComment = false;
+    },
+    [postCommentForArticleId.fulfilled]: (state, action) => {
+      state.createCommentIsPending = false;
+      state.failedToCreateComment = false;
+      state.byArticleId[action.payload.articleId].push(action.payload.comment);
+    },
+    [postCommentForArticleId.rejected]: (state, action) => {
+      state.createCommentIsPending = false;
+      state.failedToCreateComment = true;
     }
   }
 });
