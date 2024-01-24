@@ -13,7 +13,7 @@ const quizzesSlice = createSlice({
 });
 
 // selector to return all quizzes from state
-export const selectQuizzes = state => state.quizzes;
+export const selectQuizzes = state => state.quizzes.quizzes;
 
 export const { addQuiz } = quizzesSlice.actions;
 export default quizzesSlice.reducer;
